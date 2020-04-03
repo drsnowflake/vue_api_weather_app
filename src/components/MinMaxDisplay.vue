@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<span v-if="icon">{{ icon }} </span>{{ temp }}
+		<span class="triangle" v-if="icon">{{ icon }} </span>{{ temp }}
 	</span>
 </template>
 
@@ -22,4 +22,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.triangle {
+	opacity: 0.5;
+}
+</style>

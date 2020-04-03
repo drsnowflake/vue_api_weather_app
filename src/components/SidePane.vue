@@ -52,8 +52,6 @@ export default {
 	},
 	methods: {
 		getNow: function() {
-			// var offset = new Date().getTimezoneOffset();
-			// console.log(offset);
 			const weekday = new Array();
 			weekday[0] = 'Sun';
 			weekday[1] = 'Mon';

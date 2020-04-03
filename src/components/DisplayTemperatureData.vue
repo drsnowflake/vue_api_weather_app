@@ -1,17 +1,14 @@
 <template>
 	<span>
 		<span v-if="loading"> is fetching from api </span>
-		<span v-if="weatherData">
+		<span v-if="forecastData">
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-3">
-						<current-weather
-							:timezone="timezone"
-							:weatherData="weatherData"
-						></current-weather>
+						<side-pane :weatherData="weatherData"></side-pane>
 					</div>
 					<div class="col-9">
-						{{ weatherData }}
+						<weather-graphs :forecastData="forecastData"> </weather-graphs>
 					</div>
 				</div>
 			</div>
@@ -20,27 +17,42 @@
 </template>
 
 <script>
-import CurrentWeatherData from './CurrentWeatherData';
+import SidePane from './SidePane';
+import WeatherGraphs from './WeatherGraphs';
 
 export default {
 	data() {
 		return {
 			weatherData: null,
+			forecastData: null,
 			loading: true
 		};
 	},
 	props: ['location', 'timezone'],
 	mounted() {
-		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY}&units=metric`
-		)
-			.then(res => res.json())
-			.then(json => (this.weatherData = json))
-			.then((this.loading = false))
-			.then(console.log(this.location));
+		this.fetch1();
+		this.fetch2();
 	},
 	components: {
-		'current-weather': CurrentWeatherData
+		'side-pane': SidePane,
+		'weather-graphs': WeatherGraphs
+	},
+	methods: {
+		fetch1: function() {
+			fetch(
+				`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY}&units=metric`
+			)
+				.then(res => res.json())
+				.then(json => (this.weatherData = json));
+		},
+		fetch2: function() {
+			fetch(
+				`https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY}&units=metric`
+			)
+				.then(res => res.json())
+				.then(json => (this.forecastData = json))
+				.then((this.loading = false));
+		}
 	}
 };
 </script>

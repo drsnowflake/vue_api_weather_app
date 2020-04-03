@@ -23,8 +23,6 @@ export default {
 		navigator.geolocation.getCurrentPosition(pos => {
 			this.location = pos;
 		});
-		const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-		console.log(tz);
 	},
 	components: {
 		'display-temp-data': DisplayTemperatureData
