@@ -1,9 +1,9 @@
 <template>
 	<span>
-		<div id="temp">
+		<span id="temp">
 			{{ weatherData.main.feels_like.toFixed(1) }}
-			<span>°C</span>
-		</div>
+			<span id="degc">°C</span>
+		</span>
 		<div id="description">{{ weatherData.weather[0].description }}</div>
 		<div class="row">
 			<div class="col-5 temp-display">
@@ -83,10 +83,11 @@ export default {
 				month[today.getMonth()] +
 				', ' +
 				today.getFullYear();
+			// function fixedMinutes() was needed as today.getMinutes() is returned as a single digit if below 10
 			const fixedMinutes = function() {
 				const minutesNow = today.getMinutes();
 				if (minutesNow < 10) {
-					return minutesNow + 10;
+					return '0' + minutesNow;
 				} else {
 					return minutesNow;
 				}
@@ -110,11 +111,9 @@ export default {
 	position: relative;
 }
 
-#temp > span {
-	top: 100px;
-	line-height: 20px;
-	font-size: 0.25em;
-	vertical-align: super;
+#degc {
+	line-height: 230px;
+	font-size: 0.5em;
 	position: absolute;
 }
 

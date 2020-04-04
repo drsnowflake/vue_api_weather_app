@@ -1,19 +1,26 @@
 <template>
-	<fusioncharts
-		:type="type"
-		:width="width"
-		:height="height"
-		:dataFormat="dataFormat"
-		:dataSource="dataSource"
-	>
-	</fusioncharts>
+	<span id="fc">
+		<fusioncharts
+			:type="type"
+			:width="width"
+			:height="height"
+			:dataFormat="dataFormat"
+			:dataSource="dataSource"
+		>
+		</fusioncharts>
+		<div class="row">
+			<div class="col-4">Another Graph</div>
+			<div class="col-4">Another Graph</div>
+			<div class="col-4">Another Graph // maybe move kanye quote here</div>
+		</div>
+	</span>
 </template>
 
 <script>
 const dataSource = {
 	chart: {
-		caption: 'Weather for next 48 hours',
-		yaxisname: 'Temperature',
+		caption: 'Temperature for next 48 hours',
+		yaxisname: 'Temp',
 		numbersuffix: '°C',
 		rotatelabels: '1',
 		setadaptiveymin: '1',
@@ -64,4 +71,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#fc-9 {
+	padding-bottom: 25px;
+}
+</style>
