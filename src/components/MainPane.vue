@@ -9,12 +9,14 @@
 		>
 		</fusioncharts>
 		<div class="row">
-			<div class="col-8 bottom-panel">
+			<div class="col-9 bottom-panel">
 				<news-pane :userLocation="forecastData.city.country.toLowerCase()">
 				</news-pane>
 			</div>
-			<div class="col-4 bottom-panel">
-				Another Graph // maybe move kanye quote here
+			<div id="jank-logo" class="col-3 bottom-panel">
+				<a href="https://jank.website" target="_blank"
+					><img src="../assets/jank_ind.png" alt="Jank Industries Logo"
+				/></a>
 			</div>
 		</div>
 	</span>
@@ -83,5 +85,10 @@ export default {
 <style>
 .bottom-panel {
 	padding-top: 25px;
+}
+
+#jank-logo {
+	padding-top: 100px;
+	padding-left: 5px;
 }
 </style>

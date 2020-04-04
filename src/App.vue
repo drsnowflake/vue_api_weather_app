@@ -1,7 +1,7 @@
 <template>
 	<span>
 		<div>
-			<weather-pane></weather-pane>
+			<primary-app></primary-app>
 		</div>
 		<kanye-quote></kanye-quote>
 	</span>
@@ -9,12 +9,12 @@
 
 <script>
 import KanyeQuote from './components/KanyeQuote';
-import WeatherPane from './components/WeatherPane';
+import PrimaryApp from './components/PrimaryApp';
 
 export default {
 	components: {
 		'kanye-quote': KanyeQuote,
-		'weather-pane': WeatherPane
+		'primary-app': PrimaryApp
 	}
 };
 </script>

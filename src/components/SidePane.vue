@@ -1,9 +1,11 @@
 <template>
 	<span>
+		<div id="header">Current Weather</div>
 		<span id="temp">
 			{{ weatherData.main.feels_like.toFixed(1) }}
 			<span id="degc">°C</span>
 		</span>
+
 		<div id="description">{{ weatherData.weather[0].description }}</div>
 		<div class="row">
 			<div class="col-5 temp-display">
@@ -92,7 +94,7 @@ export default {
 					return minutesNow;
 				}
 			};
-			const time = today.getUTCHours() + 1 + ':' + fixedMinutes();
+			const time = today.getHours() + 1 + ':' + fixedMinutes();
 			const dateTime = date + ' ' + time;
 			this.timeStamp = dateTime;
 		}
@@ -104,10 +106,13 @@ export default {
 .temp-display {
 	font-size: 1.2em;
 }
+#header {
+	font-size: 1.5em;
+}
 
 #temp {
 	font-size: 4em;
-	line-height: 250px;
+	line-height: 225px;
 	position: relative;
 }
 
@@ -119,12 +124,12 @@ export default {
 
 #description {
 	margin: 0px;
-	top: 160px;
+	top: 190px;
 	position: absolute;
 }
 
 #timestamp {
-	padding-top: 70px;
+	padding-top: 55px;
 }
 
 #triangle {

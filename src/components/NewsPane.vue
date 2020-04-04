@@ -27,11 +27,11 @@ export default {
 	data() {
 		return {
 			fetchedNews: null,
-			newsCategory: null,
+			newsCategory: 'General',
 			newsChoices: [
+				'General',
 				'Business',
 				'Entertainment',
-				'General',
 				'Health',
 				'Science',
 				'Sports',
@@ -40,7 +40,9 @@ export default {
 		};
 	},
 	props: ['userLocation'],
-	mounted() {},
+	mounted() {
+		this.fetchArticles();
+	},
 	components: {
 		'article-display': ArticleDisplay
 	},

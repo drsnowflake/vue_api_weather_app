@@ -1,14 +1,13 @@
 <template>
 	<span>
-		<span v-if="loading"> is fetching from api </span>
 		<span v-if="forecastData">
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-3">
-						<side-pane :weatherData="weatherData"></side-pane>
+						<side-pane v-if="loaded1" :weatherData="weatherData"></side-pane>
 					</div>
 					<div class="col-9">
-						<main-pane :forecastData="forecastData"> </main-pane>
+						<main-pane v-if="loaded2" :forecastData="forecastData"> </main-pane>
 					</div>
 				</div>
 			</div>
@@ -25,7 +24,8 @@ export default {
 		return {
 			weatherData: null,
 			forecastData: null,
-			loading: true
+			loaded1: false,
+			loaded2: false
 		};
 	},
 	props: ['location', 'timezone'],
@@ -43,7 +43,8 @@ export default {
 				`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY_WEATHER}&units=metric`
 			)
 				.then(res => res.json())
-				.then(json => (this.weatherData = json));
+				.then(json => (this.weatherData = json))
+				.then((this.loaded1 = true));
 		},
 		fetch2: function() {
 			fetch(
@@ -51,7 +52,7 @@ export default {
 			)
 				.then(res => res.json())
 				.then(json => (this.forecastData = json))
-				.then((this.loading = false));
+				.then((this.loaded2 = true));
 		}
 	}
 };
