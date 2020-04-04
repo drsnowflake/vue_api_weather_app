@@ -8,7 +8,7 @@
 						<side-pane :weatherData="weatherData"></side-pane>
 					</div>
 					<div class="col-9">
-						<weather-graphs :forecastData="forecastData"> </weather-graphs>
+						<main-pane :forecastData="forecastData"> </main-pane>
 					</div>
 				</div>
 			</div>
@@ -18,7 +18,7 @@
 
 <script>
 import SidePane from './SidePane';
-import WeatherGraphs from './WeatherGraphs';
+import MainPane from './MainPane';
 
 export default {
 	data() {
@@ -35,19 +35,19 @@ export default {
 	},
 	components: {
 		'side-pane': SidePane,
-		'weather-graphs': WeatherGraphs
+		'main-pane': MainPane
 	},
 	methods: {
 		fetch1: function() {
 			fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY}&units=metric`
+				`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY_WEATHER}&units=metric`
 			)
 				.then(res => res.json())
 				.then(json => (this.weatherData = json));
 		},
 		fetch2: function() {
 			fetch(
-				`https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY}&units=metric`
+				`https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY_WEATHER}&units=metric`
 			)
 				.then(res => res.json())
 				.then(json => (this.forecastData = json))

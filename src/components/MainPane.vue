@@ -1,5 +1,5 @@
 <template>
-	<span id="fc">
+	<span>
 		<fusioncharts
 			:type="type"
 			:width="width"
@@ -9,14 +9,20 @@
 		>
 		</fusioncharts>
 		<div class="row">
-			<div class="col-4">Another Graph</div>
-			<div class="col-4">Another Graph</div>
-			<div class="col-4">Another Graph // maybe move kanye quote here</div>
+			<div class="col-8 bottom-panel">
+				<news-pane :userLocation="forecastData.city.country.toLowerCase()">
+				</news-pane>
+			</div>
+			<div class="col-4 bottom-panel">
+				Another Graph // maybe move kanye quote here
+			</div>
 		</div>
 	</span>
 </template>
 
 <script>
+import NewsPane from './NewsPane';
+
 const dataSource = {
 	chart: {
 		caption: 'Temperature for next 48 hours',
@@ -67,12 +73,15 @@ export default {
 				tempDate.slice(5);
 			return newDate;
 		}
+	},
+	components: {
+		'news-pane': NewsPane
 	}
 };
 </script>
 
 <style>
-#fc-9 {
-	padding-bottom: 25px;
+.bottom-panel {
+	padding-top: 25px;
 }
 </style>
