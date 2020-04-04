@@ -101,7 +101,7 @@ export default {
 
 <style>
 .temp-display {
-	font-size: 1.25em;
+	font-size: 1.2em;
 }
 
 #temp {

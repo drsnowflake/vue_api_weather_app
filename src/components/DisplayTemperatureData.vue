@@ -63,7 +63,9 @@ export default {
 }
 
 .jumbotron {
+	background-color: rgb(38, 42, 51);
 	padding: 2em 2em;
 	height: 500px;
+	color: rgb(246, 246, 246);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<span class="triangle" v-if="icon">{{ icon }} </span>{{ temp }}
+		<span class="triangle" v-if="icon">{{ icon }} </span>{{ temp }}°c
 	</span>
 </template>
 
