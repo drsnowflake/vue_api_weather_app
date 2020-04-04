@@ -5,6 +5,7 @@
 		<display-temp-data
 			v-if="finishedLoading"
 			:location="location"
+			:key="componentKey"
 		></display-temp-data>
 	</span>
 </template>
@@ -18,7 +19,8 @@ export default {
 			location: null,
 			errorMessage: null,
 			loading: true,
-			finishedLoading: false
+			finishedLoading: false,
+			componentKey: 0
 		};
 	},
 	mounted() {
@@ -50,6 +52,8 @@ export default {
 				console.log('Old Lat:', this.location.coords.latitude);
 				console.log('New Lat:', pos.coords.latitude);
 				this.location = pos;
+				this.componentKey += 1;
+				console.log('Forcing Refresh');
 			}
 		}
 	}

@@ -49,6 +49,7 @@ export default {
 	},
 	props: ['forecastData'],
 	mounted() {
+		this.dataSource.data = [];
 		this.convertData();
 	},
 	methods: {
