@@ -1,4 +1,4 @@
-# dashboard
+# Vue Weather App
 
 
 ## Prerequisites
