@@ -20,7 +20,7 @@ export default {
 			errorMessage: null,
 			loading: true,
 			finishedLoading: false,
-			componentKey: 0
+			componentKey: 0,
 		};
 	},
 	mounted() {
@@ -28,25 +28,25 @@ export default {
 		setInterval(this.checkLocation, 2000);
 	},
 	components: {
-		'display-temp-data': DisplayTemperatureData
+		'display-temp-data': DisplayTemperatureData,
 	},
 	methods: {
-		checkLocation: function() {
+		checkLocation: function () {
 			navigator.geolocation.getCurrentPosition(this.testLoc);
 		},
-		getLocation: function() {
+		getLocation: function () {
 			navigator.geolocation.getCurrentPosition(this.success, this.error);
 		},
-		success: function(pos) {
+		success: function (pos) {
 			this.location = pos;
 			this.loading = false;
 			this.finishedLoading = true;
 		},
-		error: function(err) {
+		error: function (err) {
 			this.loading = false;
 			this.errorMessage = err.message;
 		},
-		testLoc: function(pos) {
+		testLoc: function (pos) {
 			if (pos.coords.latitude != this.location.coords.latitude) {
 				console.log('Change detected');
 				console.log('Old Lat:', this.location.coords.latitude);
@@ -55,8 +55,8 @@ export default {
 				this.componentKey += 1;
 				console.log('Forcing Refresh');
 			}
-		}
-	}
+		},
+	},
 };
 </script>
 

@@ -41,19 +41,19 @@ import MinMaxDisplay from './MinMaxDisplay';
 export default {
 	data() {
 		return {
-			timeStamp: null
+			timeStamp: null,
 		};
 	},
 	props: ['weatherData', 'timezone'],
 	components: {
-		'minmax-display': MinMaxDisplay
+		'minmax-display': MinMaxDisplay,
 	},
 	mounted() {
 		this.getNow();
 		setInterval(this.getNow, 2000);
 	},
 	methods: {
-		getNow: function() {
+		getNow: function () {
 			const weekday = new Array();
 			weekday[0] = 'Sun';
 			weekday[1] = 'Mon';
@@ -86,7 +86,7 @@ export default {
 				', ' +
 				today.getFullYear();
 			// function fixedMinutes() was needed as today.getMinutes() is returned as a single digit if below 10
-			const fixedMinutes = function() {
+			const fixedMinutes = function () {
 				const minutesNow = today.getMinutes();
 				if (minutesNow < 10) {
 					return '0' + minutesNow;
@@ -97,14 +97,14 @@ export default {
 			const time = today.getHours() + 1 + ':' + fixedMinutes();
 			const dateTime = date + ' ' + time;
 			this.timeStamp = dateTime;
-		}
-	}
+		},
+	},
 };
 </script>
 
 <style>
 .temp-display {
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 #header {
 	font-size: 1.5em;
