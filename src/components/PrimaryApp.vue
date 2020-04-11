@@ -77,7 +77,9 @@ export default {
 				.then(json => (this.newLocation = json.city));
 		},
 		updateTown: function(pos) {
-			fetch()
+			fetch(
+				`https://geocode.xyz/${pos.coords.latitude},${pos.coords.longitude}?geoit=json`
+			)
 				.then(res => res.json())
 				.then(json => (this.oldLocation = json.city));
 		}
