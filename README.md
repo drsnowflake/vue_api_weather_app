@@ -16,7 +16,6 @@ Contents of file:
 ```
 VUE_APP_API_KEY_WEATHER=KEY1
 VUE_APP_API_KEY_NEWS=KEY2
-VUE_APP_API_KEY_XYZ=KEY3
 ```
 
 #### Required API Keys (free versions are sufficient):
@@ -25,11 +24,11 @@ KEY1 : [Openweather.org](https://openweathermap.org/api) - used for current loca
 
 KEY2 : [Newsapi.org](https://newsapi.org/) - used for news widget (includes country specific news)
 
-KEY3 : [Geocode.xyz](https://geocode.xyz/api) - used for checking users current location (by town) to ensure the app doesn't refresh on every minor lat/long change
-
 #### Additional API usage (key not required)
 
 [Kanye.rest](https://kanye.rest) - used for Kanye West quotes
+
+[Geocode.xyz](https://geocode.xyz/api) - used for checking users current location (by town) to ensure the app doesn't refresh on every minor lat/long change
 
 ## Project setup
 
