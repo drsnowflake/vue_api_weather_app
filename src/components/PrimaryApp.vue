@@ -71,15 +71,13 @@ export default {
 		},
 		getTown: function(pos) {
 			fetch(
-				`https://geocode.xyz/${pos.coords.latitude},${pos.coords.longitude}?geoit=json&auth=${process.env.VUE_APP_API_KEY_XYZ}`
+				`https://geocode.xyz/${pos.coords.latitude},${pos.coords.longitude}?geoit=json`
 			)
 				.then(res => res.json())
 				.then(json => (this.newLocation = json.city));
 		},
 		updateTown: function(pos) {
-			fetch(
-				`https://geocode.xyz/${pos.coords.latitude},${pos.coords.longitude}?geoit=json&auth=${process.env.VUE_APP_API_KEY_XYZ}`
-			)
+			fetch()
 				.then(res => res.json())
 				.then(json => (this.oldLocation = json.city));
 		}
