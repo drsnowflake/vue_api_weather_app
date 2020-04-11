@@ -27,34 +27,34 @@ export default {
 	data() {
 		return {
 			weatherData: null,
-			forecastData: null,
+			forecastData: null
 		};
 	},
 	props: ['location', 'timezone'],
 	mounted() {
-		this.fetch1();
-		this.fetch2();
+		this.locationCall();
+		this.forecastCall();
 	},
 	components: {
 		'side-pane': SidePane,
-		'main-pane': MainPane,
+		'main-pane': MainPane
 	},
 	methods: {
-		fetch1: function () {
+		locationCall: function() {
 			fetch(
 				`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY_WEATHER}&units=metric`
 			)
-				.then((res) => res.json())
-				.then((json) => (this.weatherData = json));
+				.then(res => res.json())
+				.then(json => (this.weatherData = json));
 		},
-		fetch2: function () {
+		forecastCall: function() {
 			fetch(
 				`https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.coords.latitude}&lon=${this.location.coords.longitude}&appid=${process.env.VUE_APP_API_KEY_WEATHER}&units=metric`
 			)
-				.then((res) => res.json())
-				.then((json) => (this.forecastData = json));
-		},
-	},
+				.then(res => res.json())
+				.then(json => (this.forecastData = json));
+		}
+	}
 };
 </script>
 

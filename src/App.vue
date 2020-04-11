@@ -14,14 +14,13 @@ import PrimaryApp from './components/PrimaryApp';
 export default {
 	components: {
 		'kanye-quote': KanyeQuote,
-		'primary-app': PrimaryApp
-	}
+		'primary-app': PrimaryApp,
+	},
 };
 </script>
 
 <style>
 body {
-	width: 95%;
 	padding: 2%;
 }
 </style>
